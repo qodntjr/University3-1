@@ -1,0 +1,25 @@
+#include <iostream>	//cout, cin
+#include <string>		//getline
+using namespace std;
+
+int main()
+{
+	string name;
+	cout << "What is your name? " << endl;
+	getline (cin, name);
+	cout <<	"Hello, " << name << "!\n";		//cout : 출력 명령, << : 왼쪽 쉬프트는 넣어주는
+}
+
+class CRect{
+	int w, h; 		//멤버변수
+	public:
+		void Set (int x, int y){ w=x; h=y;}
+		int Area() { return w*h; } 		
+};
+int main () {
+	CRect r;
+	r.Set(4,5);
+	cout << "(4,5) Area is: " << r.Area();
+	return 0;
+}
+	
