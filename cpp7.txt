@@ -1,0 +1,31 @@
+ofstream MyFile("");
+MyFile << "";
+MyFile.close();
+
+c_split;
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+	ofstream MyFile("anu.txt");
+	MyFile << 20 << endl << 30 << '\n' << 40;
+	MyFile.close();
+}
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+	double a, b, c;
+	ifstream MyFile("my.data");
+	MyFile >> a >> b ;
+	c = a + b;
+	cout << c;
+	MyFile.close();
+}
+
+C++ 특징
+Class, Object, 보안성(public, protected, private), 상속성, 다형성,
+함수 오버로딩, 연산자 오버로딩, 생성자, 소멸자, 템플릿
