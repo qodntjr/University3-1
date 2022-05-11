@@ -1,0 +1,63 @@
+오퍼레이트 오버로딩
+int add (int a, int b){
+	return a+b;
+}
+double add (double a, double b){
+	return a+b;
+}
+
+함수 템플릿
+template <class T>
+T sum (T a, T b){
+	return a+b;
+}
+int main(){
+	int i = 5, j = 6, k;
+	double f = 3.2, g =4.7;
+	k = sum<int>(i,j);
+	h = sum<double>(f,g);
+}
+
+
+
+
+int main(){
+	CPnt a(1,1);
+	CPnt b(2,2);
+	CPnt c(0,0);
+	c = a.Add(b);
+	c.pr();
+}
+
+
+#include <iostream>
+using namespace std;
+class CPnt{
+	int x, y;
+	public:
+		CPnt(){		//default 생성자
+			x = 0;
+			y = 0;
+		}
+		CPnt(int a, int b){	//CPnt(int a, int b):x(a),y(b){}
+			x = a;
+			y = b;
+		}
+		CPnt operator+(CPnt a){
+			CPnt t;
+			t.x = x + a.x;
+			t.y = y + a.y;
+			return t;
+		}
+		pr(){
+			cout << x << "," << y << endl;
+		}
+};
+
+int main(){
+	CPnt a(1,1);
+	CPnt b(2,2);
+	CPnt c;
+	c = a.operator+(b)	;	// c = a + b; 오퍼레이터 오버로딩
+	c.pr();
+}
