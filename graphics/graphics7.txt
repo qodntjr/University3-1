@@ -1,0 +1,17 @@
+texture
+
+let img;
+function preload(){
+    img = loadImage('');
+}
+function setup(){
+  createCanvas(img.width, img.height, WEBGL);
+  noStroke();
+}
+function draw(){
+  background(128);
+  rotateX(mouseX/16);
+  rotateY(mouseY/16);
+  texture(img);
+  box(width/4);
+}
