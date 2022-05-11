@@ -1,0 +1,86 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class abc{
+    int x=0;
+    public:
+        abc(int a):x(a){}
+        void Pr(){
+            cout << x << endl;
+        }
+        void Plus(){
+            x += 1;
+        }
+        void operator++(int a){
+            x += 1;
+        }
+};
+
+int main()
+{
+  abc a(3);
+  a.Pr();
+  a.Plus();
+  a++;
+  a.Pr();
+}
+
+#include <iostream>
+using namespace std;
+class CPoly{
+    protected:
+        int w, h;
+};
+class CRect : public CPoly{
+    public:
+        CRect(int x, int y){w = x, h = y;}
+        void APr(){ cout << w * h << endl; }
+};
+int main()
+{
+  CRect* r;
+  r = new CRect(2,4);
+  r->APr();
+  delete(r); 	//new 로 생성했기 떄문에 delete 해준다
+}
+
+--------
+#include <iostream>
+using namespace std;
+class CPoly{
+    protected:
+        int w, h;
+    public:		//virtual 상속 중 함수이름은 동일한데 선택되는 객체에 따라 
+        virtual ~CPoly(){}	//소멸자 
+        virtual void APr()=0;   //interface==pure virtual  자녀에 APr()이 무조건 있어야함
+};
+class CRect : public CPoly{
+    public:
+        CRect(int x, int y){w = x, h = y;}
+        void APr(){ cout << w * h << endl; }
+};
+class CTry : public CPoly{
+    public:
+        CTry(int x, int y){w = x, h = y;}
+        void APr(){ cout << w * h / 2 << endl; }
+};
+
+int main()
+{
+  CPoly* a = NULL;
+  CRect* p = new CRect(2,4);
+  a = p;
+  a->APr();
+  CTry* r = new CTry(2,4);
+  a = r;
+  a->APr();
+  
+  delete(p);
+  delete(r);
+}
+
+다형성
+ 오버로딩
+ virtual -> 순수 가상함수, 가상 함수
+ 템플릿
