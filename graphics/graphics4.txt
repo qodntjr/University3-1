@@ -1,0 +1,61 @@
+push();
+normalMaterial();
+box();
+pop();
+
+== 의미가 비슷
+=== 형태까지 같아야함
+
+function add(a, b){
+  return a+b;
+}
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  let c = add(2,3);
+  console.log(c);
+}
+
+---
+s = createSlider(0, 255, 127); 	//최소, 최대, 초기값
+
+let s;
+let v;
+function setup() {
+  createCanvas(400, 400);
+  s = createSlider(0, 255, 127);
+  v = createSlider(0, 10, 0);
+}
+
+function draw() {
+  background(127);
+  translate(200,200);
+  scale(map(s.value(),0,255,0.2,2.3));
+  happyFace(0,0, 170, v.value());
+}
+
+function happyFace (x, y, diam, a) {
+  
+      // Face
+      fill(255, 255, 0);
+      stroke(0);
+      strokeWeight(2);
+      ellipse(x, y, diam, diam);
+      
+      // Smile
+      var startAng = .1*PI
+      var endAng = .9*PI
+      var smileDiam = .6*diam;
+      arc(x, y, smileDiam, smileDiam, startAng, endAng);
+      
+      // Eyes
+      var offset = .2*(diam+a);
+      var eyeDiam = .1*(diam+a);
+      fill(0);
+      ellipse(x-offset, y-offset, eyeDiam+a, eyeDiam+a);
+      ellipse(x+offset, y-offset, eyeDiam+a, eyeDiam+a);
+}
