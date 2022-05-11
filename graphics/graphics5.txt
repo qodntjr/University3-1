@@ -1,0 +1,41 @@
+let wg=0, wr=0, wb=0;
+let sp=0, val=50;
+let b;
+function setup() {
+  createCanvas(400,400);
+  b = createButton('click me');	//버튼
+  b.mousePressed(change);		//마우스클릭
+  let inp = createInput('');
+  inp.size(100);
+  inp.input(fn);
+}
+function change(){
+  val = random(25,100);
+}
+function fn(){
+  if(this.value<400){
+    val = this.value();
+  }
+}
+function draw() {
+  background(0);
+  if(wg>400) {wg = random()*400;}
+  if(wr>400) {wr = random()*400;}
+  if(wb>400) {wb = random()*400;}
+  fill(0,255,0);
+  ellipse(100,wg,val,val);
+  fill(255,0,0);
+  ellipse(300,wr,val,val);
+  fill(0,0,255);
+  ellipse(wb,200,val,val);
+  wg += (5+sp);
+  wr += (5+sp);
+  wb += (5+sp);
+}
+
+ambientLight();	//전체 다 비춰줌
+pointLight();
+normalMaterial();
+ambientMaterial():
+specularMaterial();
+camera();
