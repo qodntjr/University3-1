@@ -1,0 +1,80 @@
+friend int main(); 	-> main에서 private도 사용 가능
+
+#include <iostream>
+using namespace std;
+
+class CRect{
+    int x, y;
+    public:
+        CRect(int x, int y = 2){
+            this->x = x;
+            this->y = y;
+        }
+        int Area(){
+            return x*y;
+        }
+};
+
+int main()
+{
+  CRect r(4);
+  cout << "(4, 5) Area is: " << r.Area();
+  return 0;
+}
+
+클래스의 멤버는 화살표 연산자로 접근한다
+#include <iostream>
+using namespace std;
+
+class CRect{
+    int x, y, sum;
+    public:
+        CRect(int x, int y = 2){
+            this->x = x;
+            this->y = y;
+            this->sum = x*y;
+        }
+        friend void Pr(CRect *m);
+};
+void Pr(CRect* m){
+    cout << "Area is: " << m->sum;
+}
+int main()
+{
+  CRect r(4);
+  CRect *p = &r;
+  Pr(p);
+  return 0;
+}
+
+CRect의 w와 h를 CSq의 멤버 private 변수 s=20의 값을 가져올 수 있도록
+#include <iostream>
+using namespace std;
+class CSq;
+class CRect{
+    int w, h;
+    public:
+        int area(){
+            return w*h;
+        }
+        void conv(CSq a);
+};
+class CSq{
+    private:
+        int s;
+    public:
+        CSq(int a): s(a){};
+    friend class CRect;
+};
+void CRect::conv(CSq a){
+    w = a.s;
+    h = a.s;
+}
+int main()
+{
+  CSq a(20);
+  CRect r;
+  r.conv(a);
+  cout << r.area() << endl;
+  return 0;
+}
