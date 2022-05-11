@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+class CRect{		//class
+	int w, h;
+	public:
+		CRect(){	//inline 함수 
+			w = 4;
+			h = 5;
+		}
+		int Area(){
+			return w * h;
+		}
+};
+
+int main(){
+	CRect r1;		// object
+	cout << r1.Area();
+}
+
+getline
+
+int me=88;
+int we(88);
+
+오버로딩 : 함수의 중복 정의
+
+#include <iostream>
+using namespace std;
+class CRect{		//class
+	int w, h;
+	public:
+		CRect();
+		CRect(int x, int y){		//CRect(int x, int y):w(x),h(y){}
+			w = x, h = y;
+		}
+		int Area();	//prototype		}
+};
+CRect::CRect(){	w = 4; h = 5;}
+int CRect::Area(){ return w * h;}
+int main(){
+	CRect r1;		// object
+	int a, b;
+	cin >> a >> b;
+	CRect r2(a, b);	// 다형성 
+	cout << r2.Area();
+}
+
+보안성
+멤버변수
+멤버함수
+생성자
+생성자의 중복정의
+생성자에서 값의 클론 초기화
+멤버함수를 인라인으로 생성
+멤버함수를 클래스 밖에서 생성
+객체의 생성
