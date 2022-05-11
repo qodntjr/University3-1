@@ -1,0 +1,92 @@
+size(500,500);
+background(0);			
+fill(255,200,100);
+ellipse(250,250,80,80);
+
+void setup(){			//초기화 부분
+  size(500,500);
+  stroke(0,255,0);			//색상
+  strokeWeight(16);			//화소
+}
+void draw(){
+  if(mousePressed){
+    line(pmouseX, pmouseY, mouseX, mouseY);	//pmouse = 이전 마우스
+  }
+}
+
+int i;		//외부변수
+void setup(){}
+void draw(){}
+
+function setup() {
+  createCanvas(displayWidth, displayHeight);
+  strokeWeight(10);
+  stroke(0);
+}
+
+function touchMoved() {
+  line(mouseX, mouseY, pmouseX, pmouseY);
+}
+
+자바 스크립트 p5.js
+내 컴퓨터와 스마트폰이 동일한 공유기를 활용해야 잘 연결된다
+
+println(frameRate);		//프레임
+noStroke();		//테두리 제거
+translate(x,y);		//이동명령
+rotate();
+PImage img;
+img = loadImage("파일명");
+imageMode(CENTER);
+
+PImage img;
+void setup(){
+  size(400,400);
+  img = loadImage("");
+  imageMode(CENTER);
+}
+float f;
+void draw(){
+  translate(mouseX, mouseY);
+  rotate(f);
+  scale( sin(f)+1 );
+  f = f + 0.05;
+  image(img, 0, 0, 100, 100);
+}
+
+f = crateFont("굴림",128);
+textFont(f);
+
+void setup(){
+  size(400,400);
+  textSize(100);
+}
+float a=0.0, i=4.5;
+int sp=1;
+void draw(){
+  if(a>width-222 || a<0) i=-i;
+  background(0);
+  text("Hello", a+=i*sp, 200);
+}
+void keyPressed(){
+  sp = key-'0';
+}
+
+js
+
+function setup(){
+	createCanvas(400, 400);
+}
+
+function draw() {
+	translate(mouseX, mouseY);
+	ellipse(0, 0, 80, 80);
+}
+
+
+mousePressed
+mouseDragged
+
+import processing.pdf.*;
+beginRecord(PDF, "everything.pdf");
+
