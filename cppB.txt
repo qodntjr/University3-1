@@ -1,0 +1,14 @@
+stack
+.push()
+.empty()
+.top()
+.pop()
+
+stack<int> v;
+
+템플릿
+폴리모피즘
+벡터
+스택
+
+WinUI3
