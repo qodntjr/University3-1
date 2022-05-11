@@ -1,0 +1,14 @@
+p5js graphics
+createGraphics():
+화면 속에 또 다른 화면을 만든다
+graphics안에서(0,0)에서 시작
+
+// 랜덤한 5개의 원을 거리 5 이내로 이동하는 객체를 만들어 화면에 출력하는 코드를 작성하시오. 배경은 파란색
+
+
+createCanvas(800,600,WEBGL);
+
+background(170);
+rotateX(map(mouseX, 0 ,width,0, 3));
+rotateY(map(mouseY, 0 ,height,0, 3));
+
