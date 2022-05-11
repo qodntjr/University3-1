@@ -1,0 +1,54 @@
+string 중요
+
+this -> a = a ; 해당되는 객체 속의 것을 사용할 떄 (현재 객체의 포인터)
+
+#include <iostream>
+using namespace std;
+class CPnt{
+    int x, y;
+    public:
+        CPnt():x(0), y(0){}
+        CPnt(int x, int y){ 	//CPnt(int x, int y):x(x),y(y){}
+            this->x = x;
+            this->y = y;
+        }
+        CPnt Add(CPnt a){
+            return (CPnt(x + a.x, y + a.y));
+        }
+        CPnt operator-(CPnt p){
+            return (CPnt(x - p.x, y - p.y));
+        }
+        void Pr(){
+            cout << x << "," << y << endl;
+        }
+};
+int main()
+{
+    CPnt p1(2,3);
+    CPnt p2(1,2);
+    CPnt p3, p4;
+    p3 = p1.Add(p2);
+    p4 = p1-p2;
+    p3.Pr();
+    p4.Pr();
+}
+
+static 로컬 변수를 글로벌로 쓸 수 있다
+const 
+
+#include <iostream>
+using namespace std;
+void test(){
+    static int x=0;     //only once init.
+    cout << ++x << endl;
+}
+int main()
+{
+    test();
+    test();
+    test();
+}
+
+
+상속 : 변수에 protected (private 시 상속을 안해준다)
+class a: public b{}         a가 b를 상속
