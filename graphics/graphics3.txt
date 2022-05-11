@@ -1,0 +1,59 @@
+function setup() {
+  createCanvas(displayWidth,displayHeight);
+  stroke(0,255,0);
+  strokeWeight(4);
+}
+
+
+function draw() {
+  if(mouseIsPressed){
+    line(pmouseX,pmouseY,mouseX,mouseY);
+  }
+}
+
+----
+
+let img;
+function preload(){
+  img = loadImage('');
+}
+
+function setup() {
+  createCanvas(displayWidth,displayHeight);
+}
+
+let f=0;
+function draw() {
+  translate(mouseX,mouseY);
+  rotate(f);
+  f = f+0.05;
+  image(img, 0, 0, 1000,500);
+}
+
+----
+
+TRIANGLE_STRIP
+
+noise(0~1) 
+
+int cols, rows;
+int scl = 20;
+
+void setup(){
+  int w = 600;
+  int h = 600;
+  cols = w/scl;
+  rows = h/scl;
+}
+
+
+void draw() {
+  background(0);
+  stroke(255);
+  noFill();
+  for(int x=0; x<cols; x++){
+    for(int y=0; y<rows; y++){
+      
+    }
+  }
+}
