@@ -1,0 +1,7 @@
+filter(INVERT); 	사진에 적용
+
+loadImage(url.img=>{
+		crateCanvas(img.width, img.height);
+		image(img, 0, 0);
+		filter(INVERT);
+});
