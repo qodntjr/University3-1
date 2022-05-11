@@ -1,0 +1,23 @@
+WEBGL	createCanvas(710, 400, WEBGL); -> 3D
+P3D	size(640, 360, P3D);
+
+translate(50, 0); 	50만큼 이동시킴
+push();
+pop();
+
+bezier 곡선 그려주는
+
+reference
+tutorial
+
+function setup() {
+  createCanvas(displayWidth, displayHeight);
+  stroke(0, 0, 255);
+  strokeWeight(8);
+}
+
+function draw() {
+  if (mouseIsPressed) {
+    line(pmouseX, pmouseY, mouseX, mouseY);
+  }
+}
